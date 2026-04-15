@@ -6,7 +6,7 @@
     <title>The Lab - Junbert Ambassador</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <style>
         body {
             margin: 0; padding: 0;
@@ -19,10 +19,10 @@
         .logo-overlay {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
-            z-index: 800; opacity: 0.8; pointer-events: none;
+            z-index: 800; opacity: 0.15; pointer-events: none;
             display: flex; justify-content: center; align-items: center;
         }
-        .logo-overlay img { max-width: 100%; max-height: 100%; width: auto; height: auto; }
+        .logo-overlay img { max-width: 40%; max-height: 40%; width: auto; height: auto; }
 
         .video-notification {
             position: fixed; top: 0; left: 0;
@@ -60,7 +60,7 @@
             position: relative; z-index: 900;
             display: flex; flex-direction: column;
             padding: 20px; box-sizing: border-box;
-            overflow-y: auto; 
+            overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: #FFD700 rgba(255, 255, 255, 0.1);
         }
@@ -83,10 +83,23 @@
 
         .lab-header { color: #fff; text-align: center; font-size: 1.5rem; letter-spacing: 5px; margin-bottom: 10px; text-transform: uppercase; }
 
-        .button-stack { 
-            display: flex; flex-direction: column; 
-            gap: 15px; align-items: center; width: 100%; 
-            padding-top: 130px; padding-bottom: 50px;
+        .button-stack {
+            display: flex; flex-direction: column;
+            gap: 15px; align-items: center; width: 100%;
+            padding-top: 30px; padding-bottom: 50px;
+        }
+
+        .logo-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .company-logo {
+            width: 120px;
+            height: auto;
+            object-fit: contain;
         }
 
         .mabangis-btn {
@@ -115,7 +128,7 @@
 
         .content-section { display: none; color: #fff; line-height: 1.6; text-align: left; }
         .content-section h2 { color: #FFD700; font-size: 1.4rem; margin-bottom: 15px; text-transform: uppercase; }
-        
+
         .aggressive-glow {
             color: #fff; text-align: center;
             text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
@@ -126,8 +139,8 @@
             to { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 50px #990000; }
         }
 
-        .spacer-top { height: 80px; } 
-        .spacer-bottom { height: 100px; } 
+        .spacer-top { height: 80px; }
+        .spacer-bottom { height: 100px; }
 
         .contact-info { margin-top: auto; padding: 25px 0; color: rgba(255, 255, 255, 0.8); text-align: center; font-size: 0.8rem; }
         .social-icons { margin-bottom: 15px; display: flex; gap: 35px; font-size: 1.8rem; justify-content: center; }
@@ -136,7 +149,7 @@
 </head>
 <body>
 
-    <div class="logo-overlay"><img src="assets/1774426432542.png" alt="Lab Logo"></div>
+    <div class="logo-overlay"><img src="assets/logo.png" alt="Lab Logo"></div>
 
     <div class="video-notification" id="broadcast" onclick="handleVideoToggle()">
         <video autoplay muted loop playsinline id="main-video"><source src="assets/Mabangis.mp4" type="video/mp4"></video>
@@ -150,12 +163,16 @@
     <div class="container" id="main-container">
         <div id="menu-view">
             <div class="button-stack">
+                <div class="logo-container">
+                    <img src="assets/logo.png" alt="Company Logo (Martial Artists Emblem)" class="company-logo">
+                </div>
+
                 <div class="lab-header">The Complete Art</div>
                 <span class="event-text">What is</span>
                 <button class="mabangis-btn" onclick="loadAndShow('juego')">Juego Todo</button>
                 <button class="mabangis-btn" onclick="loadAndShow('mabangis')">Mabangis</button>
                 <button class="mabangis-btn" onclick="loadAndShow('junbert')">Junbert</button>
-                
+
                 <div style="display:flex; flex-direction:column; align-items:center; gap:8px; width:100%; margin-top: 10px;">
                     <button class="signup-btn" onclick="loadAndShow('signup')">Sign Up</button>
                     <span class="event-text">Incoming Events</span>
@@ -169,8 +186,8 @@
         <div class="contact-info" id="footer-info">
             <div class="chat-text">Chat with me</div>
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mr.gen.z" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CSQm8biy9/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="mailto:elitefilipinomaharlika@gmail.com"><i class="fa-solid fa-envelope"></i></a>
             </div>
             <strong>elitefilipinomaharlika@gmail.com</strong>
@@ -181,7 +198,7 @@
         function handleVideoToggle() {
             const video = document.getElementById('broadcast');
             const icon = document.querySelector('#toggle-icon i');
-            if (window.innerWidth > window.innerHeight) { video.classList.toggle('expanded'); } 
+            if (window.innerWidth > window.innerHeight) { video.classList.toggle('expanded'); }
             else { video.classList.toggle('shrunk'); }
             icon.className = (video.classList.contains('expanded') || !video.classList.contains('shrunk')) ? 'fas fa-compress' : 'fas fa-expand';
         }
@@ -192,12 +209,10 @@
             const backBtn = document.getElementById('back-nav-container');
 
             try {
-                // Fetch the sub-entity file
                 const response = await fetch(`${fileName}.html`);
                 if (!response.ok) throw new Error('System error: Sub-entity not found.');
                 const html = await response.text();
 
-                // Inject and Toggle
                 container.innerHTML = html;
                 menu.style.display = 'none';
                 container.style.display = 'block';
@@ -218,4 +233,3 @@
     </script>
 </body>
 </html>
-
