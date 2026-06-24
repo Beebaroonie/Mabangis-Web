@@ -159,8 +159,15 @@
                 <div style="display:flex; flex-direction:column; align-items:center; gap:8px; width:100%; margin-top: 10px;">
                     <button class="signup-btn" onclick="loadAndShow('signup')">Sign Up</button>
                     <span class="event-text">Incoming Events</span>
-                    <button class="more-btn" onclick="loadAndShow('support')">More</button>
+                    <button class="more-btn" onclick="showMore()">More</button>
                 </div>
+            </div>
+        </div>
+
+        <div id="more-view" style="display:none;">
+            <div class="button-stack">
+                <div class="lab-header">More</div>
+                <button class="mabangis-btn" onclick="loadAndShow('support')">Support</button>
             </div>
         </div>
 
@@ -189,6 +196,7 @@
         async function loadAndShow(fileName) {
             const container = document.getElementById('dynamic-content');
             const menu = document.getElementById('menu-view');
+            const moreView = document.getElementById('more-view');
             const backBtn = document.getElementById('back-nav-container');
 
             try {
@@ -200,6 +208,7 @@
                 // Inject and Toggle
                 container.innerHTML = html;
                 menu.style.display = 'none';
+                moreView.style.display = 'none';
                 container.style.display = 'block';
                 backBtn.style.display = 'block';
                 document.getElementById('main-container').scrollTop = 0;
@@ -210,8 +219,15 @@
             }
         }
 
+        function showMore() {
+            document.getElementById('menu-view').style.display = 'none';
+            document.getElementById('more-view').style.display = 'block';
+            document.getElementById('back-nav-container').style.display = 'block';
+        }
+
         function showButtons() {
             document.getElementById('menu-view').style.display = 'block';
+            document.getElementById('more-view').style.display = 'none';
             document.getElementById('dynamic-content').style.display = 'none';
             document.getElementById('back-nav-container').style.display = 'none';
         }
