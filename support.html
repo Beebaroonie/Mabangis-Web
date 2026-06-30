@@ -1,239 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - The Lab</title>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * { box-sizing: border-box; }
+<style>
+    * { box-sizing: border-box; }
 
-        body {
-            margin: 0; padding: 0;
-            background: linear-gradient(90deg, #990000 0%, #0000ff 100%);
-            min-height: 100vh;
-            font-family: 'Marcellus SC', serif;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 32px 20px 60px;
-        }
+    .support-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 20px 60px;
+        font-family: 'Marcellus SC', serif;
+        color: #fff;
+    }
 
-        .back-link {
-            align-self: flex-start;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.95rem;
-            opacity: 0.85;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .back-link:hover { opacity: 1; }
+    .cat-hero {
+        width: 180px;
+        height: auto;
+        filter: drop-shadow(0 0 18px rgba(255,255,255,0.35))
+                drop-shadow(0 0 36px rgba(120,160,255,0.25));
+        animation: sway-fast 2.6s ease-in-out infinite;
+        margin-bottom: 8px;
+    }
 
-        .cat-hero {
-            width: 180px;
-            height: auto;
-            filter: drop-shadow(0 0 18px rgba(255,255,255,0.35))
-                    drop-shadow(0 0 36px rgba(120,160,255,0.25));
-            animation: sway-fast 2.6s ease-in-out infinite;
-            margin-bottom: 8px;
-        }
+    @keyframes sway-fast {
+        0%, 100% { transform: rotate(-4deg); }
+        50% { transform: rotate(4deg); }
+    }
 
-        @keyframes sway-fast {
-            0%, 100% { transform: rotate(-4deg); }
-            50% { transform: rotate(4deg); }
-        }
+    .support-wrap h1 {
+        font-size: 1.8rem;
+        letter-spacing: 0.05em;
+        margin: 4px 0 4px;
+        text-align: center;
+    }
 
-        h1 {
-            font-size: 1.8rem;
-            letter-spacing: 0.05em;
-            margin: 4px 0 4px;
-            text-align: center;
-        }
+    .subtitle {
+        opacity: 0.85;
+        font-size: 0.95rem;
+        text-align: center;
+        max-width: 320px;
+        margin-bottom: 32px;
+        line-height: 1.5;
+    }
 
-        .subtitle {
-            opacity: 0.85;
-            font-size: 0.95rem;
-            text-align: center;
-            max-width: 320px;
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
+    .pay-card {
+        background: rgba(0,0,0,0.35);
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 14px;
+        padding: 20px 22px;
+        width: 100%;
+        max-width: 360px;
+        margin-bottom: 18px;
+        backdrop-filter: blur(4px);
+    }
 
-        .pay-card {
-            background: rgba(0,0,0,0.35);
-            border: 1px solid rgba(255,255,255,0.18);
-            border-radius: 14px;
-            padding: 20px 22px;
-            width: 100%;
-            max-width: 360px;
-            margin-bottom: 18px;
-            backdrop-filter: blur(4px);
-        }
+    .pay-card-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
 
-        .pay-card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
+    .pay-card-header i { font-size: 1.2rem; }
 
-        .pay-card-header i {
-            font-size: 1.2rem;
-        }
+    .pay-card-header span {
+        font-size: 1.05rem;
+        letter-spacing: 0.03em;
+    }
 
-        .pay-card-header span {
-            font-size: 1.05rem;
-            letter-spacing: 0.03em;
-        }
+    .pay-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 8px;
+        padding: 10px 12px;
+    }
 
-        .pay-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 8px;
-            padding: 10px 12px;
-        }
+    .pay-value {
+        font-family: monospace;
+        font-size: 0.9rem;
+        word-break: break-all;
+        opacity: 0.95;
+    }
 
-        .pay-value {
-            font-family: monospace;
-            font-size: 0.9rem;
-            word-break: break-all;
-            opacity: 0.95;
-        }
+    .copy-btn {
+        flex-shrink: 0;
+        background: #fff;
+        color: #1a0020;
+        border: none;
+        border-radius: 6px;
+        padding: 7px 12px;
+        font-family: 'Marcellus SC', serif;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .copy-btn:hover { background: #f0e6ff; }
+    .copy-btn:active { transform: scale(0.95); }
+    .copy-btn.copied { background: #8effb0; }
 
-        .copy-btn {
-            flex-shrink: 0;
-            background: #fff;
-            color: #1a0020;
-            border: none;
-            border-radius: 6px;
-            padding: 7px 12px;
-            font-family: 'Marcellus SC', serif;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: transform 0.15s ease, background 0.15s ease;
-        }
-        .copy-btn:hover { background: #f0e6ff; }
-        .copy-btn:active { transform: scale(0.95); }
-        .copy-btn.copied { background: #8effb0; }
+    .paypal-link-btn {
+        display: inline-block;
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: #fff;
+        text-decoration: none;
+        padding: 9px 0;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        letter-spacing: 0.03em;
+        transition: background 0.15s ease;
+    }
+    .paypal-link-btn:hover { background: rgba(255,255,255,0.22); }
 
-        .paypal-link-btn {
-            display: inline-block;
-            margin-top: 10px;
-            text-align: center;
-            width: 100%;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: #fff;
-            text-decoration: none;
-            padding: 9px 0;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            letter-spacing: 0.03em;
-            transition: background 0.15s ease;
-        }
-        .paypal-link-btn:hover { background: rgba(255,255,255,0.22); }
+    .share-section {
+        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .share-section {
-            margin-top: 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .share-btn {
+        background: rgba(0,0,0,0.4);
+        border: 1px solid rgba(255,255,255,0.25);
+        color: #fff;
+        border-radius: 999px;
+        padding: 12px 26px;
+        font-family: 'Marcellus SC', serif;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .share-btn:hover { background: rgba(0,0,0,0.55); transform: translateY(-1px); }
 
-        .share-btn {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.25);
-            color: #fff;
-            border-radius: 999px;
-            padding: 12px 26px;
-            font-family: 'Marcellus SC', serif;
-            font-size: 0.95rem;
-            letter-spacing: 0.04em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.15s ease, transform 0.15s ease;
-        }
-        .share-btn:hover { background: rgba(0,0,0,0.55); transform: translateY(-1px); }
+    /* QR Modal */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(3px);
+        z-index: 1500;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
 
-        /* QR Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(3px);
-            z-index: 1500;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .modal-overlay.open { display: flex; }
+    .modal-box {
+        background: linear-gradient(160deg, #1a0020 0%, #2a0040 100%);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 18px;
+        padding: 28px 24px 24px;
+        max-width: 320px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 0 40px rgba(100,80,255,0.3);
+    }
 
-        .modal-box {
-            background: linear-gradient(160deg, #1a0020 0%, #2a0040 100%);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 18px;
-            padding: 28px 24px 24px;
-            max-width: 320px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 0 40px rgba(100,80,255,0.3);
-        }
+    .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.3rem;
+        cursor: pointer;
+        opacity: 0.7;
+        line-height: 1;
+    }
+    .modal-close:hover { opacity: 1; }
 
-        .modal-close {
-            position: absolute;
-            top: 12px;
-            right: 14px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.3rem;
-            cursor: pointer;
-            opacity: 0.7;
-            line-height: 1;
-        }
-        .modal-close:hover { opacity: 1; }
+    .modal-box h2 {
+        font-size: 1.1rem;
+        margin: 0 0 16px;
+        letter-spacing: 0.04em;
+    }
 
-        .modal-box h2 {
-            font-size: 1.1rem;
-            margin: 0 0 16px;
-            letter-spacing: 0.04em;
-        }
+    #qr-canvas {
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        display: inline-block;
+    }
 
-        #qr-canvas {
-            background: #fff;
-            border-radius: 10px;
-            padding: 10px;
-            display: inline-block;
-        }
+    .modal-box p.hint {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        margin-top: 14px;
+        margin-bottom: 0;
+        line-height: 1.4;
+    }
 
-        .modal-box p.hint {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-top: 14px;
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
+    @media (prefers-reduced-motion: reduce) {
+        .cat-hero { animation: none; }
+    }
+</style>
 
-        @media (prefers-reduced-motion: reduce) {
-            .cat-hero { animation: none; }
-        }
-    </style>
-</head>
-<body>
-
-    <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to The Lab</a>
+<div class="support-wrap">
 
     <img src="assets/thumbsup_cat.png" alt="Mabangis giving a thumbs up" class="cat-hero">
 
@@ -247,7 +219,7 @@
         </div>
         <div class="pay-row">
             <span class="pay-value" id="zelle-value">visi8nsvision@gmail.com</span>
-            <button class="copy-btn" onclick="copyValue('zelle-value', this)">Copy</button>
+            <button class="copy-btn" onclick="supportCopyValue('zelle-value', this)">Copy</button>
         </div>
     </div>
 
@@ -258,61 +230,59 @@
         </div>
         <div class="pay-row">
             <span class="pay-value" id="paypal-value">visi8nsvision@gmail.com</span>
-            <button class="copy-btn" onclick="copyValue('paypal-value', this)">Copy</button>
+            <button class="copy-btn" onclick="supportCopyValue('paypal-value', this)">Copy</button>
         </div>
     </div>
 
     <div class="share-section">
-        <button class="share-btn" onclick="openShareModal()">
+        <button class="share-btn" onclick="supportOpenQR()">
             <i class="fa-solid fa-qrcode"></i> Share this site
         </button>
     </div>
 
-    <div class="modal-overlay" id="qr-modal">
+    <div class="modal-overlay" id="qr-modal" onclick="if(event.target.id==='qr-modal') supportCloseQR()">
         <div class="modal-box">
-            <button class="modal-close" onclick="closeShareModal()">&times;</button>
+            <button class="modal-close" onclick="supportCloseQR()">&times;</button>
             <h2>Scan to visit The Lab</h2>
             <div id="qr-canvas"></div>
             <p class="hint">Point a phone camera at this code to open the homepage.</p>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script>
-        function copyValue(id, btn) {
-            const text = document.getElementById(id).textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                const original = btn.textContent;
-                btn.textContent = 'Copied!';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = original;
-                    btn.classList.remove('copied');
-                }, 1800);
-            });
-        }
+</div>
 
-        let qrRendered = false;
-        function openShareModal() {
-            document.getElementById('qr-modal').classList.add('open');
-            if (!qrRendered) {
-                const siteUrl = window.location.origin + window.location.pathname.replace('support.html', 'index.html');
-                new QRCode(document.getElementById('qr-canvas'), {
-                    text: siteUrl,
-                    width: 220,
-                    height: 220,
-                    colorDark: "#1a0020",
-                    colorLight: "#ffffff"
-                });
-                qrRendered = true;
-            }
-        }
-        function closeShareModal() {
-            document.getElementById('qr-modal').classList.remove('open');
-        }
-        document.getElementById('qr-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'qr-modal') closeShareModal();
+<script>
+    var supportQrRendered = false;
+
+    function supportCopyValue(id, btn) {
+        var text = document.getElementById(id).textContent;
+        navigator.clipboard.writeText(text).then(function() {
+            var original = btn.textContent;
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(function() {
+                btn.textContent = original;
+                btn.classList.remove('copied');
+            }, 1800);
         });
-    </script>
-</body>
-</html>
+    }
+
+    function supportOpenQR() {
+        document.getElementById('qr-modal').classList.add('open');
+        if (!supportQrRendered) {
+            var siteUrl = window.location.origin + window.location.pathname.replace(/\/support\.html$/, '/index.html');
+            new QRCode(document.getElementById('qr-canvas'), {
+                text: siteUrl,
+                width: 220,
+                height: 220,
+                colorDark: "#1a0020",
+                colorLight: "#ffffff"
+            });
+            supportQrRendered = true;
+        }
+    }
+
+    function supportCloseQR() {
+        document.getElementById('qr-modal').classList.remove('open');
+    }
+</script>
