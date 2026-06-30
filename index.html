@@ -244,6 +244,6 @@
             document.getElementById('back-nav-container').style.display = 'none';
         }
     </script>
-</body>
+<div id="scroll-guides" style="position:fixed; right:12px; bottom:90px; display:flex; flex-direction:column; gap:8px; z-index:9999;"><button onclick="document.getElementById('main-container').scrollBy({top:-200,behavior:'smooth'})" style="background:rgba(80,80,80,0.55); border:none; border-radius:8px; width:32px; height:32px; color:#FFD700; font-size:1rem; cursor:pointer;">&#8679;</button><button onclick="document.getElementById('main-container').scrollBy({top:200,behavior:'smooth'})" style="background:rgba(80,80,80,0.55); border:none; border-radius:8px; width:32px; height:32px; color:#FFD700; font-size:1rem; cursor:pointer;">&#8681;</button></div></body>
 </html>
 
