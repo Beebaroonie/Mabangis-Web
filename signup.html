@@ -59,7 +59,19 @@
         <option value="General Fitness">General Fitness</option>
       </select>
 
-      <label class="training-field-label">Preferred Days / Times</label>
+        <label class="training-field-label">Location</label>
+        <select class="training-field-select" id="t-location" onchange="document.getElementById('t-location-other-wrap').style.display = (this.value === 'Other') ? 'block' : 'none';">
+          <option value="Amalgam Martial Arts - 27 E Chicago Ave, Westmont, IL">Amalgam Martial Arts - Westmont, IL</option>
+          <option value="Northside Boxing and Fitness - 2000 Dempster St Suite B2, Evanston, IL 60202">Northside Boxing and Fitness - Evanston, IL</option>
+          <option value="Lions Martial Arts Academy - 401 S. Rt. 83 (Barron Blvd.), Grayslake, IL 60030">Lions Martial Arts Academy - Grayslake, IL</option>
+          <option value="Other">Other</option>
+        </select>
+        <div id="t-location-other-wrap" style="display:none;">
+          <label class="training-field-label">Specify Location</label>
+          <input class="training-field-input" type="text" id="t-location-other">
+        </div>
+
+        <label class="training-field-label">Preferred Days / Times</label>
       <input class="training-field-input" type="text" id="t-days">
 
       <label class="training-field-label">Goals</label>
@@ -93,6 +105,7 @@ document.getElementById("trainingForm").addEventListener("submit", function(e) {
     email: document.getElementById("t-email").value,
     experience: document.getElementById("t-experience").value,
     interest: document.getElementById("t-interest").value,
+    location: (document.getElementById("t-location").value === "Other") ? document.getElementById("t-location-other").value : document.getElementById("t-location").value,
     days: document.getElementById("t-days").value,
     goals: document.getElementById("t-goals").value,
     medical: document.getElementById("t-medical").value,
